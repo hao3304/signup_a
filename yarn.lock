@@ -2543,6 +2543,11 @@ css-declaration-sorter@^4.0.1:
     postcss "^7.0.1"
     timsort "^0.3.0"
 
+css-element-queries@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/css-element-queries/-/css-element-queries-1.2.1.tgz#70d1a0f676fc0bd0a3306522a5b2d3bcc55c9fe6"
+  integrity sha512-hiI1tSzf+U/gE13qhfwnCvN90Ay0THnE+mT3pjN/c/mvFmEUHZVNrvMJrrkw2ppOzkl69FdgH2ZGZENYQUaN2A==
+
 css-loader@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-1.0.1.tgz#6885bb5233b35ec47b006057da01cc640b6b79fe"
@@ -3888,22 +3893,12 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-fvc-iot@^0.4.4:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/fvc-iot/-/fvc-iot-0.4.5.tgz#9e78a01954088444bf66bf7cd2b763603497e00a"
-  integrity sha512-XnnjTQ01mhPchDVksWKPCbOoe8wp0GOmmeMQIAz1DNMM32mya7jfZUD+y66Q9f3KdOKpyoaHH+D+95wxL2JvvA==
+fvc@^0.6.11:
+  version "0.6.13"
+  resolved "https://registry.npmjs.org/fvc/-/fvc-0.6.13.tgz#0736e66cbacee22125fca8018dfe673e7aa95031"
+  integrity sha512-KtqxDg6YOOSW8rA4FAdzNtjTwWH3g47lGRfiGCj3Gw3vf27qGudEnfW4OBi1nEFJzmzzobBwpFwQ8S2y+u/d6w==
   dependencies:
-    fvc "^0.5.4"
-
-fvc@^0.5.4:
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/fvc/-/fvc-0.5.9.tgz#5be6e0856a394152deaf61527bdb11bfb7846601"
-  integrity sha512-4QdavBusBnHZFuG41uQch2ffGECrdGOD0nCFdVDj0VYTYK2MlCQcaina1kuCsKzUYrxc7R6U2s/ywzyAFaC2Ig==
-
-fvc@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/fvc/-/fvc-0.6.0.tgz#0f64f4a3f7870677d758caab4651db008560579a"
-  integrity sha512-YN4o3lMM1P2foi9tVFUBUvEJHo89RHDjUWc8ITCKa7G4nMLYNbes2L8daTrVUoE2Xb9uBOUL+OaVVrSHhbOy2A==
+    css-element-queries "^1.2.1"
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -6603,6 +6598,11 @@ pretty-error@^2.0.2:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
+
+printd@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/printd/-/printd-1.4.0.tgz#84fca4936c45d389da14ac0b5772b645895269fc"
+  integrity sha512-iZ+fISToxu/lDy3v9XBY8jA8+tffdmpQHYPPR5Ex2MJ4eGrvp0s5RdKv2bE8LECMkRM8YDbEybWrv47X60jiUQ==
 
 private@^0.1.6:
   version "0.1.8"

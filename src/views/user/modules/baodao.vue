@@ -1,11 +1,11 @@
 <template>
-  <div class="baodao">
-    <Button @click="onPrint" type="primary" style="float: right">打印</Button>
-    <div ref="printMe">
+  <div class="baodao" >
+    <Button @click="onPrint"  type="primary" style="float: right">打印</Button>
+    <div ref="printMe" id="baodao">
       <div class="baodao__header">
         镇（街道）： {{ getName("area", info.areaid) }}
       </div>
-      <table class="baodao__table">
+      <table class="baodao__table" >
         <tr>
           <td class="name">姓名</td>
           <td>{{ info.realname }}</td>
@@ -102,6 +102,43 @@
 import types from "../types";
 import { mapState } from "vuex";
 import Service from "@/services";
+import { Printd } from 'printd';
+
+const cssText = `
+  div {
+      line-height: 40px;
+  }
+  div {
+      line-height: 40px;
+      text-align: right;
+      margin-top: 10px;
+  }
+
+  table {
+       width: 100%;
+      border-collapse: collapse;
+  }
+
+  table td {
+        border: 1px solid #ddd;
+        line-height: 36px;
+        height: 36px;
+        padding: 0 5px;
+             min-width: 100px;
+        color: #000;
+        text-align: center;
+        font-size: 12px;
+  }
+
+  table td.name {
+          font-weight: normal;
+          width: 100px;
+          color: #666;
+          background-color: #f1f1f1;
+  }
+`
+
+
 export default {
   props: {
     info: {
@@ -139,7 +176,8 @@ export default {
       }
     },
     onPrint() {
-      this.$print(this.$refs.printMe);
+      const d = new Printd()
+      d.print( document.getElementById('baodao'), [ cssText ] )
     }
   },
   created() {
@@ -159,35 +197,5 @@ export default {
 </script>
 
 <style lang="less">
-.baodao {
-  &__header {
-    line-height: 40px;
-  }
 
-  &__footer {
-    line-height: 40px;
-    text-align: right;
-    margin-top: 10px;
-  }
-  &__table {
-    width: 100%;
-    border-collapse: collapse;
-    td {
-      border: 1px solid #ddd;
-      line-height: 36px;
-      height: 36px;
-      padding: 0 5px;
-      max-width: 250px;
-      color: #000;
-      text-align: center;
-      font-size: 14px;
-      &.name {
-        font-weight: normal;
-        width: 100px;
-        color: #666;
-        background-color: #f1f1f1;
-      }
-    }
-  }
-}
 </style>

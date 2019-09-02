@@ -18,8 +18,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$ls = ls;
 window.eventBus = new Vue();
 export { Vue };
-import Print from "@/components/print";
-Vue.use(Print); // 注册
+
 export default new Vue({
   router,
   store,

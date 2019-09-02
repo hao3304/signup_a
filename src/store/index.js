@@ -6,7 +6,6 @@ import app from "./app";
 import common from "./common";
 import router from "@/router";
 import ls from "@/libs/ls";
-import iot from "fvc-iot/src/store";
 
 export default new Vuex.Store({
   state: {
@@ -63,7 +62,6 @@ export default new Vuex.Store({
   },
   modules: {
     app,
-    common,
-    iot
+    common
   }
 });

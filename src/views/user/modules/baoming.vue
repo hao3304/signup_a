@@ -1,13 +1,13 @@
 <template>
-  <div class="baoming">
+  <div class="baodao">
     <Button
       @click="onPrint"
       type="primary"
       style="float: right;margin-bottom: 5px;"
       >打印</Button
     >
-    <div ref="printMe">
-      <table class="baoming__table">
+    <div id="baoming">
+      <table class="baodao__table">
         <tr>
           <td class="name">姓名</td>
           <td>{{ info.realname }}</td>
@@ -108,11 +108,11 @@
         <tr>
           <td class="name">退役士兵本人意见</td>
           <td colspan="4">
-            <div>
+            <div style="text-align: left;line-height: 30px">
               我自愿参加政府组织的免费职业技能教育培训，遵章守法，勤奋学习，按要求完成教育培训说明。
             </div>
-            <div style="text-align: right;margin-right: 200px;">签名：</div>
-            <div style="text-align: right;margin-right: 100px;">
+            <div style="text-align: right;margin-right: 100px;">签名：</div>
+            <div style="text-align: right;margin-right: 20px;">
               <span style="margin-right: 20px;">年</span>
               <span style="margin-right: 20px;">月</span>
               <span style="margin-right: 20px;">日</span>
@@ -151,9 +151,37 @@
 </template>
 
 <script>
+import { Printd } from 'printd'
 import types from "../types";
 import { mapState } from "vuex";
 import Service from "@/services";
+
+const cssText = `
+
+  table {
+       width: 100%;
+      border-collapse: collapse;
+  }
+
+  table td {
+        border: 1px solid #ddd;
+        line-height: 36px;
+        height: 36px;
+        padding: 0 5px;
+        min-width: 100px;
+        color: #000;
+        text-align: center;
+        font-size: 12px;
+  }
+
+  table td.name {
+          font-weight: normal;
+          width: 100px;
+          color: #666;
+          background-color: #f1f1f1;
+  }
+`
+
 export default {
   props: {
     info: {
@@ -174,7 +202,7 @@ export default {
   computed: {
     ...mapState(["mz"])
   },
-  name: "baoming",
+  name: "baodao",
   methods: {
     getName(field, id) {
       const target = types[field].find(a => a.key == id);
@@ -193,7 +221,8 @@ export default {
       }
     },
     onPrint() {
-      this.$print(this.$refs.printMe);
+      const d = new Printd()
+      d.print( document.getElementById('baoming'), [ cssText ] )
     }
   },
   mounted() {
@@ -225,35 +254,5 @@ export default {
 </script>
 
 <style lang="less">
-.baoming {
-  &__header {
-    line-height: 40px;
-  }
 
-  &__footer {
-    line-height: 40px;
-    text-align: right;
-    margin-top: 10px;
-  }
-  &__table {
-    width: 100%;
-    border-collapse: collapse;
-    td {
-      border: 1px solid #ddd;
-      line-height: 36px;
-      height: 36px;
-      padding: 0 5px;
-      max-width: 250px;
-      color: #000;
-      text-align: center;
-      font-size: 14px;
-      &.name {
-        font-weight: normal;
-        width: 100px;
-        color: #666;
-        background-color: #f1f1f1;
-      }
-    }
-  }
-}
 </style>
